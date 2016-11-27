@@ -56,14 +56,12 @@ Now, we'll make a graph of the median age at first marriage for males.  All of t
 
 ````{r}
 
-ggplot(data=DATA SET NAME, aes(x=long, y=lat, group = group)) + 
-  geom_polygon(fill=marriagemap$Male, colour="white") +
+ggplot() + 
+  geom_polygon(data=DATA SET NAME, aes(x=long, y=lat, group = group, fill=marriagemap$Male),colour="white") +
   scale_fill_continuous(low = "thistle2", high = "darkblue", guide="colorbar") +
   theme_bw() + 
-  labs(fill = "Median Age at First Marriage" , 
-       title = "Median Age at First Marriage, Males, 2014",
-       x="", y="") + 
   coord_map() +
+  labs(fill = "Median Age at First Marriage" ,title = "Median Age at First Marriage, Males, 2014", x="", y="") + 
   scale_y_continuous(breaks=c()) + 
   scale_x_continuous(breaks=c()) + 
   theme(panel.border = element_blank(), legend.position = "bottom")
@@ -74,14 +72,12 @@ And finally, let's make a map for females.  Go ahead and fill in the same datase
 
 ````{r}
 
-ggplot(DATA SET NAME, aes(x=long, y=lat, group = group)) + 
-  geom_polygon(, fill=marriagemap$Female, colour="white") +
+ggplot() + 
+  geom_polygon(data=DATA SET NAME, aes(x=long, y=lat, group = group, fill=marriagemap$Female),colour="white") +
   scale_fill_continuous(low = "thistle2", high = "darkred", guide="colorbar") +
   theme_bw() + 
-  labs(fill = "Median Age at First Marriage" , 
-       title = "Median Age at First Marriage, Females, 2014", 
-       x="", y="") + 
   coord_map() +
+  labs(fill = "Median Age at First Marriage" ,title = "Median Age at First Marriage, Females, 2014", x="", y="") + 
   scale_y_continuous(breaks=c()) + 
   scale_x_continuous(breaks=c()) + 
   theme(panel.border = element_blank(), legend.position = "bottom")
